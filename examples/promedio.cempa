@@ -1,0 +1,13 @@
+numero materias = 5
+numero calificacion
+numero total
+numero promedio
+
+para i = 0 ; i < materias ; i++
+    leer calificacion
+    total = total + calificacion
+fin
+
+promedio = total / materias
+
+eco "Tu promedio es de " + promedio

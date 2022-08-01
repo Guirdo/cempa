@@ -4,7 +4,8 @@ enum TokenType  {
     SEMICOLON,
     LPAREN,
     RPAREN,
-    ENDLINE,
+    WHITESPACE,
+    EOL,
     FIN,
 
     //Aritmethics operators
@@ -41,12 +42,14 @@ enum TokenType  {
     //CLASSES
     CLASSNAME,
     FUNCTION,
+    ECO,
 
     //Literals
     NUMBER,
     STRING,
     BOOLEAN,
     COMMENT,
+    IDENT,
 
     //Loops
     PARA,
@@ -61,7 +64,24 @@ type Token = {
     literal: string,
 }
 
+const keywords = {
+    'si': TokenType.SI,
+    'fin': TokenType.FIN,
+    'eco': TokenType.ECO,
+    'numero': TokenType.CLASSNAME,
+    'texto': TokenType.CLASSNAME,
+}
+
+function lookForIdentifierType(literal: string) {
+    if(keywords[literal]){
+        return keywords[literal]
+    }else{
+        return TokenType.IDENT
+    }
+}
+
 export {
     TokenType,
-    Token
+    Token,
+    lookForIdentifierType
 }
